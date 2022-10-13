@@ -7,29 +7,22 @@ const shoppingList = [
     'Pane',
     'Latte di mandorla',
     'Insalata',
-    'Burger di soia'
+    'Burger di soia',
 ];
 
-// Imposto le variabili i e text
-// Dentro text andrò ad inserire gli elementi dall'array
-
+// Ciclo While
 let i = 0;
-let text = '';
-
-// Seleziono la mia ul per la stampa della lista della spesa su pagina
-const shoppingListElement = document.querySelector('.shopping-list')
-console.log(shoppingListElement);
-
-// Creo il mio ciclo While
-while (shoppingList[i]) {
-    text += shoppingList[i] + "<br>";
-    i++;
-    // Imposto il mio li con dentro la lista della spesa da inserire nel mio ul
-    const liElement = `<li>${text}</li>`
-    // Stampo la lista nel mio li su pagina
-    shoppingListElement.insertAdjacentHTML('beforeend', liElement)
-
+while (i < shoppingList.length) {
+    // Imposto il mio indice in una costante
+    const shoppingListElement = shoppingList[i]
+    console.log(shoppingListElement);
+    //Seleziono il mio ul
+    const ul = document.querySelector('ul')
+    //Creo un li
+    const liElement = document.createElement("li")
+    //Uso append per inserire li in ul
+    ul.append(liElement)
+    //Dentro li inserisco la mia lista della spesa
+    liElement.append(shoppingListElement)
+    i++
 }
-
-// Stampo su console
-console.log(text);
